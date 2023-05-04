@@ -1,1 +1,27 @@
-
+<div class="container">
+  <ul>
+    <li *ngFor="let car of cars" style="list-style: none">
+      <div class="card" style="width: 14rem">
+        <img
+          routerLink="product/{{ car.id }}"
+          [src]="car.imageUrl"
+          class="card-img-top"
+          [alt]="car.name"
+          style="cursor: pointer"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ car.name }}</h5>
+          <p class="card-text">
+            <span style="font-weight: 500">Mô tả:</span>
+            {{ car.description }}
+          </p>
+          <p class="card-text">
+            <span style="font-weight: 500">Giá: </span>
+            {{ car.price | currency }}
+          </p>
+          <a routerLink="cart" class="btn btn-primary">Thêm vào giỏ hàng</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
